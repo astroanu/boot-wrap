@@ -3,19 +3,29 @@
 	<title>Demo</title>
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap-modal/css/bootstrap-modal.css">
-	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap-modal/css/bootstrap-modal-bs3patch.css">
+	<!--link rel="stylesheet" type="text/css" href="../vendor/bootstrap-modal/css/bootstrap-modal.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap-modal/css/bootstrap-modal-bs3patch.css"-->
 
 	<script type="text/javascript" src="../vendor/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../vendor/bootstrap-modal/js/bootstrap-modal.js"></script>
-	<script type="text/javascript" src="../vendor/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+	<!--script type="text/javascript" src="../vendor/bootstrap-modal/js/bootstrap-modal.js"></script>
+	<script type="text/javascript" src="../vendor/bootstrap-modal/js/bootstrap-modalmanager.js"></script-->
+	<script type="text/javascript" src="../vendor/bootbox/bootbox.js"></script>
 
 	<script type="text/javascript" src="../src/bootwrap.js"></script>
 </head>
 <body>
-	<a href="text.html" data-modal-id="modal-demo" class="bw-modal">Modal </a>
-
-	<a href="success.json" class="bw-ajaxlink">ajaxlink</a>
+	<ul class="list-group">
+		<li><a href="text.html" data-modal-id="modal-demo" class="bw-modal">Modal </a></li>
+		<li><a href="success.json" class="bw-ajaxlink">ajaxlink</a></li>
+		<li><a href="success.json" data-confirm="Proceed?" class="bw-ajaxlink">ajaxlink with confirm</a></li>
+		<li><a href="success.json" data-confirm="Proceed?" data-callback="callbackfunction" class="bw-ajaxlink">ajaxlink with confirm and callback</a></li>
+	</ul>
+	<script type="text/javascript">
+		function callbackfunction(element, data){
+			console.log(data);
+			alert('this is the call function');
+		}
+	</script>
 </body>
 </html>

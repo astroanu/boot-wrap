@@ -13,9 +13,8 @@ $(function(){
 var bw = {
 	ajaxmodal : function(link){
 		var id = link.data('modal-id');
-		var modal = $('<div '+ (id != null ? 'id="ajax-modal" ' : '') +'class="modal fade" tabindex="-1"></div>');
-		$(link).after(modal);
-		$('body').modalmanager('loading');
+		var modal = $('<div '+ (id != null ? 'id="ajax-modal" ' : '') +'class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>');
+		$('body').append(modal);
 		modal.load(link.attr('href'), function(){
 			modal.modal();
 	    });	
@@ -24,14 +23,29 @@ var bw = {
 	    });
 	},
 	ajaxlink : function(link){
+		if(link.data('confirm') == null){
+			doAjax()
+		}else{
+			bootbox.confirm(link.data('confirm'), function(result) {
+				if(result){
+					doAjax();
+				}
+			}); 
+		}
 		
+		function doAjax(){
+			$.getJSON(link.attr('href'), function(response){
+				if(response.success){
+					if(link.data('callback') == null){
+						link.replaceWith(response.data.html)
+					}else{
+						var func = window[link.data('callback')];
+						if(typeof func == 'function'){
+							func(link, response);
+						}
+					}
+				}
+			});
+		}		
 	}
 }
-
-// bootstrap 3 modal support
-$.fn.modal.defaults.spinner = $.fn.modalmanager.defaults.spinner = 
-    '<div class="loading-spinner" style="width: 200px; margin-left: -100px;">' +
-        '<div class="progress progress-striped active">' +
-            '<div class="progress-bar" style="width: 100%;"></div>' +
-        '</div>' +
-    '</div>';

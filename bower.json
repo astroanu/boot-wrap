@@ -4,6 +4,6 @@
   "dependencies": {
     "jquery": "~1.10.2",
     "bootstrap": "~3.3.2",
-    "bootstrap-modal": "git@github.com:jschr/bootstrap-modal.git#~2.2.5"
+    "bootbox": "~4.3.0"
   }
 }
