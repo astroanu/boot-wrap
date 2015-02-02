@@ -12,13 +12,32 @@
 </head>
 <body>
 	<ul class="list-group">
-		<li><a href="text.html" data-modal-id="modal-demo" class="bw-modal">Modal </a></li>
-		<li><a href="slowloader.php" data-modal-id="modal-demo-slow" class="bw-modal">Modal with loading</a></li>
-		<li><a href="success.json" class="bw-ajaxlink">ajaxlink</a></li>
-		<li><a href="success.json" data-confirm="Proceed?" class="bw-ajaxlink">ajaxlink with confirm</a></li>
-		<li><a href="success.json" data-confirm="Proceed?" data-callback="callbackfunction" class="bw-ajaxlink">ajaxlink with confirm and callback</a></li>
+		<li>
+			<a href="text.html" data-modal-id="modal-demo" class="bw-modal">Modal </a>
+		</li>
+		<li>
+			<a href="slowloader.php" data-modal-id="modal-demo-slow" class="bw-modal">Modal with loading</a>
+		</li>
+		<li>
+			<a href="success.json" class="bw-ajaxlink">ajaxlink</a>
+		</li>
+		<li>
+			<a href="success.json" data-confirm="Proceed?" class="bw-ajaxlink">ajaxlink with confirm</a>
+		</li>
+		<li>
+			<a href="success.json" data-confirm="Proceed?" data-callback="callbackfunction" class="bw-ajaxlink">ajaxlink with confirm and callback</a>
+		</li>
+		<li>
+			<button class="alert1">alert</button>
+		</li>
 	</ul>
 	<script type="text/javascript">
+		$(function(){
+			$('.alert1').click(function(){
+				bw.msg('warning', 'tst', 3000);
+			});
+		});
+
 		function callbackfunction(element, data){
 			console.log(data);
 			alert('this is the call function');

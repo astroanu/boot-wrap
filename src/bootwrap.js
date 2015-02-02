@@ -48,5 +48,25 @@ var bw = {
 				}
 			});
 		}		
+	},
+	msg: function(type, msg, duration){
+		var alertwrap = $('<div id="alertwrap"></div>');
+		alertwrap.append('<div class="alert-container"></div>');
+		var alert = $('<div class="alert alert-'+type+' '+(duration === false ? 'alert-dismissible': '')+'" role="alert">'+
+		  '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+msg+'</div>');
+
+		if($('#alertwrap').length == 0){
+			$('body').append(alertwrap);
+		}
+
+		$('#alertwrap').find('.alert-container').append(alert);
+		
+		if(duration > 0){
+			window.setTimeout(function(){
+				alert.fadeOut(function(){
+					alert.remove();
+				});
+			}, duration);
+		}
 	}
 }
