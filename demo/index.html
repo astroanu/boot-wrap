@@ -28,13 +28,41 @@
 			<a href="success.json" data-confirm="Proceed?" data-callback="callbackfunction" class="bw-ajaxlink">ajaxlink with confirm and callback</a>
 		</li>
 		<li>
-			<button class="alert1">alert</button>
+			<button class="alert1">alert success</button>
+		</li>
+		<li>
+			<button class="alert2">alert info</button>
+		</li>
+		<li>
+			<button class="alert3">alert warning</button>
+		</li>
+		<li>
+			<button class="alert4">alert danger</button>
+		</li>
+		<li>
+			<button class="alert5">alert always</button>
 		</li>
 	</ul>
 	<script type="text/javascript">
 		$(function(){
 			$('.alert1').click(function(){
-				bw.msg('warning', 'tst', 3000);
+				bw.msg('success', 'Success', 3000);
+			});
+
+			$('.alert2').click(function(){
+				bw.msg('info', '<strong>Done</strong> All done...', 3000);
+			});
+
+			$('.alert3').click(function(){
+				bw.msg('warning', 'Warning <a href="#">click</a> the link', 3000);
+			});
+
+			$('.alert4').click(function(){
+				bw.msg('danger', 'test', 3000);
+			});
+
+			$('.alert5').click(function(){
+				bw.msg('success', 'Success', false);
 			});
 		});
 
