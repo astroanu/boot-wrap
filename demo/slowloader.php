@@ -1,4 +1,4 @@
 <?php 
-sleep(3);
+sleep(5);
 require('text.html');
 ?>

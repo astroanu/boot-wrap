@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "~1.10.2",
     "bootstrap": "~3.3.2",
-    "bootbox": "~4.3.0"
+    "bootbox": "~4.3.0",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2"
   }
 }
