@@ -13,14 +13,15 @@ $(function(){
 var bw = {
 	ajaxmodal : function(link){
 		var id = link.data('modal-id');
-		var modal = $('<div '+ (id != null ? 'id="ajax-modal" ' : '') +'class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>');
-		$('body').append(modal);
-		modal.load(link.attr('href'), function(){
-			modal.modal();
-	    });	
-	    modal.on('hidden.bs.modal', function(){
+		var modal = $('<div '+ (id != null ? 'id="ajax-modal" ' : '') +'class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"></div></div>');					
+	    $('body').append(modal);
+	    modal.on('show.bs.modal', function(){
+			modal.find('.modal-dialog').load(link.attr('href'), function(){
+				modal.removeClass('loading');
+			});
+	    }).on('hidden.bs.modal', function(){
 	    	$(this).remove();
-	    });
+	    }).modal();
 	},
 	ajaxlink : function(link){
 		if(link.data('confirm') == null){
