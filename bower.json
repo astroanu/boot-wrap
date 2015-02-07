@@ -1,8 +1,8 @@
 {
   "name": "Boot-Wrap",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "dependencies": {
-    "jquery": "~1.10.2",
+    "jquery": ">= 1.9.1",
     "bootstrap": "~3.3.2",
     "bootbox": "~4.3.0",
     "html5shiv": "~3.7.2",
