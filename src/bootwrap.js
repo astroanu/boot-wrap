@@ -69,5 +69,11 @@ var bw = {
 				});
 			}, duration);
 		}
+	},
+	lockform:function(form){
+		$(form).find('button[type="submit"]').addClass('Loading').button('loading');
+	},
+	unlockform:function(form){
+		$(form).find('button[type="submit"]').removeClass('Loading').button('reset');
 	}
 }
