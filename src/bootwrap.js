@@ -60,7 +60,13 @@ var bw = {
 			$('body').append(alertwrap);
 		}
 
-		$('#alertwrap').find('.alert-container').append(alert);
+		var alertContainer = $('#alertwrap').find('.alert-container');
+
+		if(duration === false){
+			alertContainer.empty();
+		}
+
+		alertContainer.append(alert);
 		
 		if(duration > 0){
 			window.setTimeout(function(){
@@ -69,5 +75,11 @@ var bw = {
 				});
 			}, duration);
 		}
+	},
+	lockform:function(form){
+		$(form).find('button[type="submit"]').addClass('loading').button('loading');
+	},
+	unlockform:function(form){
+		$(form).find('button[type="submit"]').removeClass('loading').button('reset');
 	}
 }
