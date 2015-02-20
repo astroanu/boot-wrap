@@ -12,8 +12,9 @@ $(function(){
 
 var bw = {
 	ajaxmodal : function(link){
-		var id = link.data('modal-id');
-		var modal = $('<div '+ (id != null ? 'id="ajax-modal" ' : '') +'class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"></div></div>');					
+		var id = link.data('modal-id') != null ? link.data('modal-id') : 'ajax-modal';
+		var size = link.data('modal-size') != null ? ' modal-' + link.data('modal-size') + ' ' : '';
+		var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');					
 	    $('body').append(modal);
 	    modal.on('show.bs.modal', function(){
 			modal.find('.modal-dialog').load(link.attr('href'), function(){
@@ -77,9 +78,12 @@ var bw = {
 		}
 	},
 	lockform:function(form){
-		$(form).find('button[type="submit"]').addClass('loading').button('loading');
+		$(form).find('button[type="submit"]').addClass('Loading').button('loading');
 	},
 	unlockform:function(form){
-		$(form).find('button[type="submit"]').removeClass('loading').button('reset');
+		$(form).find('button[type="submit"]').removeClass('Loading').button('reset');
+	},
+	closeModal:function(form){
+		$('body').find(form).closest('.modal').modal('hide');
 	}
 }
