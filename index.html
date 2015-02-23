@@ -1,44 +1,82 @@
-<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Boot-wrap by astroanu</title>
+<head>
+	<title>Demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Boot-wrap</h1>
-        <p>A js class wrapping bootstrap.js for easy ui operation</p>
+	<script type="text/javascript" src="../vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../vendor/bootbox/bootbox.js"></script>
 
-        <p class="view"><a href="https://github.com/astroanu/boot-wrap">View the Project on GitHub <small>astroanu/boot-wrap</small></a></p>
+	<script type="text/javascript" src="../src/bootwrap.js"></script>
+</head>
+<body>
 
+	<ul class="list-group">
+		<li>
+			<a href="text.html" data-modal-id="modal-demo" class="bw-modal">Modal </a>
+		</li>
+		<li>
+			<a href="slowloader.php" data-modal-id="modal-demo-slow" class="bw-modal">Modal with loading</a>
+		</li>
+		<li>
+			<a href="success.json" class="bw-ajaxlink">ajaxlink</a>
+		</li>
+		<li>
+			<a href="success.json" data-confirm="Proceed?" class="bw-ajaxlink">ajaxlink with confirm</a>
+		</li>
+		<li>
+			<a href="success.json" data-confirm="Proceed?" data-callback="callbackfunction" class="bw-ajaxlink">ajaxlink with confirm and callback</a>
+		</li>
+		<li>
+			<button class="alert1">alert success</button>
+		</li>
+		<li>
+			<button class="alert2">alert info</button>
+		</li>
+		<li>
+			<button class="alert3">alert warning</button>
+		</li>
+		<li>
+			<button class="alert4">alert danger</button>
+		</li>
+		<li>
+			<button class="alert5">alert always</button>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		$(function(){
+			$('.alert1').click(function(){
+				bw.msg('success', 'Success', 3000);
+			});
 
-        <ul>
-          <li><a href="https://github.com/astroanu/boot-wrap/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/astroanu/boot-wrap/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/astroanu/boot-wrap">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a id="boot-wrap" class="anchor" href="#boot-wrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>boot-wrap</h1>
+			$('.alert2').click(function(){
+				bw.msg('info', '<strong>Done</strong> All done...', 3000);
+			});
 
-<p>A js class wrapping bootstrap.js for easy ui operation</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/astroanu">astroanu</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+			$('.alert3').click(function(){
+				bw.msg('warning', 'Warning <a href="#">click</a> the link', 3000);
+			});
+
+			$('.alert4').click(function(){
+				bw.msg('danger', 'test', 3000);
+			});
+
+			$('.alert5').click(function(){
+				bw.msg('success', 'Success', false);
+			});
+		});
+
+		function callbackfunction(element, data){
+			console.log(data);
+			alert('this is the call function');
+		}
+	</script>
+			<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="../vendor/html5shiv/dist/html5shiv.min.js"></script>
+	  <script src="../vendor/respond/dest/respond.min.js"></script>
+	<![endif]-->
+</body>
 </html>

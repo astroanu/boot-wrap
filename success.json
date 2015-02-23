@@ -1,0 +1,6 @@
+{
+	"success":true,
+	"data" : {
+		"html" : "<a href=\"fail.json\" class=\"bw-ajaxlink\">ajaxlink result</a>"
+	}
+}
