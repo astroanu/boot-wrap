@@ -83,7 +83,7 @@ var bw = {
 	unlockform:function(form){
 		$(form).find('button[type="submit"]').removeClass('Loading').button('reset');
 	},
-	closeModal:function(form){
+	closemodal:function(form){
 		$('body').find(form).closest('.modal').modal('hide');
 	}
 }
