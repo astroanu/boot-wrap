@@ -14,15 +14,23 @@ var bw = {
 	ajaxmodal: function(link) {
 		var id = link.data('modal-id') != null ? link.data('modal-id') : 'ajax-modal';
 		var size = link.data('modal-size') != null ? ' modal-' + link.data('modal-size') + ' ' : '';
+
+		var backdrop = link.data('modal-backdrop') != null ? link.data('modal-backdrop') : true;
+		var keyboard = link.data('modal-keyboard') != null ? link.data('modal-keyboard') : true;
+
 		var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');
 		$('body').append(modal);
+
 		modal.on('show.bs.modal', function() {
 			modal.find('.modal-dialog').load(link.attr('href'), function() {
 				modal.removeClass('loading');
 			});
 		}).on('hidden.bs.modal', function() {
 			$(this).remove();
-		}).modal();
+		}).modal({
+			backdrop: backdrop,
+			keyboard: keyboard
+		});
 	},
 	ajaxlink: function(link) {
 		if (link.data('confirm') == null) {
@@ -53,6 +61,7 @@ var bw = {
 	msg: function(type, msg, duration) {
 		var alertwrap = $('<div id="alertwrap"></div>');
 		alertwrap.append('<div class="alert-container"></div>');
+
 		var alert = $('<div class="alert alert-' + type + ' ' + (duration !== false ? 'alert-dismissible' : '') + '" role="alert">' +
 			(duration !== false ? '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
 				'<span aria-hidden="true">&times;</span></button>' : '') + msg + '</div>');
