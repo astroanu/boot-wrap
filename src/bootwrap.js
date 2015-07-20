@@ -22,9 +22,17 @@ var bw = {
 		$('body').append(modal);
 
 		modal.on('show.bs.modal', function() {
-			modal.find('.modal-dialog').load(link.attr('href'), function() {
-				modal.removeClass('loading');
-			});
+			$.ajax({
+	            url: link.attr('href'),
+	            type: 'get',
+	            success: function (response) {
+	                if (response.success == undefined) {
+	                	modal.find('.modal-dialog').load(link.attr('href'), function() {
+							modal.removeClass('loading');
+						});
+	                }
+	            }
+	        });			
 		}).on('hidden.bs.modal', function() {
 			$(this).remove();
 		}).modal({
