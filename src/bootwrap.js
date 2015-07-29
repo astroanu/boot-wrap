@@ -20,18 +20,18 @@ var bw = {
 
 		var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');
 
+		$('body').append(modal);
+
 		modal.on('show.bs.modal', function() {
 			$.ajax({
 				url: link.attr('href'),
 				type: 'get',
 				success: function(response) {
 					if (response.success == undefined) {
-						$('body').append(modal..find('.modal-dialog').html(response));
-						modal.removeClass('loading');
+						modal.find('.modal-dialog').html(response).removeClass('loading');
 					}
 				}
 			});
-
 		}).on('hidden.bs.modal', function() {
 			$(this).remove();
 		}).modal({
