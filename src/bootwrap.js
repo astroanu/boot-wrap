@@ -19,27 +19,25 @@ var bw = {
 		var keyboard = link.data('modal-keyboard') != null ? link.data('modal-keyboard') : true;
 
 		var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');
-		
-		$.ajax({
-            url: link.attr('href'),
-            type: 'get',
-            success: function (response) {
-                if (response.success == undefined) {
-					$('body').append(modal);
 
-					modal.on('show.bs.modal', function() {
-						modal.find('.modal-dialog').load(link.attr('href'), function() {
-							modal.removeClass('loading');
-						});
-					}).on('hidden.bs.modal', function() {
-						$(this).remove();
-					}).modal({
-						backdrop: backdrop,
-						keyboard: keyboard
-					});                	
-                }
-            }
-        });		
+		modal.on('show.bs.modal', function() {
+			$.ajax({
+				url: link.attr('href'),
+				type: 'get',
+				success: function(response) {
+					if (response.success == undefined) {
+						$('body').append(modal..find('.modal-dialog').html(response));
+						modal.removeClass('loading');
+					}
+				}
+			});
+
+		}).on('hidden.bs.modal', function() {
+			$(this).remove();
+		}).modal({
+			backdrop: backdrop,
+			keyboard: keyboard
+		});
 	},
 	ajaxlink: function(link) {
 		if (link.data('confirm') == null) {
