@@ -1,0 +1,19 @@
+{
+    "name": "boot-wrap",
+    "version": "1.1.2",
+    "description": "A js class wrapping bootstrap.js for easy ui operation",
+    "main": "src\/bootwrap.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/astroanu/boot-wrap.git"
+    },
+    "author": "Anuradha Jayathilaka",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/astroanu/boot-wrap/issues"
+    },
+    "homepage": "https://github.com/astroanu/boot-wrap"
+}
