@@ -28,7 +28,8 @@ var bw = {
                 type: 'get',
                 success: function(response) {
                     if (response.success == undefined) {
-                        modal.find('.modal-dialog').html(response).removeClass('loading');
+                        modal.find('.modal-dialog').html(response);
+                        modal.removeClass('loading');
                     }
                 }
             });
