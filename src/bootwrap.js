@@ -11,6 +11,7 @@ $(function() {
 });
 
 var bw = {
+    ajaxloader: null,
     ajaxmodal: function(link) {
         var id = link.data('modal-id') != null ? link.data('modal-id') : 'ajax-modal';
         var size = link.data('modal-size') != null ? ' modal-' + link.data('modal-size') + ' ' : '';
@@ -18,7 +19,13 @@ var bw = {
         var backdrop = link.data('modal-backdrop') != null ? link.data('modal-backdrop') : true;
         var keyboard = link.data('modal-keyboard') != null ? link.data('modal-keyboard') : true;
 
-        var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');
+        var modal = $('<div id="' + id + '" class="modal fade loading" role="dialog" aria-labelledby="' + id + '" aria-hidden="true"><div class="modal-dialog' + size + '"></div></div>');
+
+        var loader = this.ajaxloader;
+
+        if (loader != null) {
+            loader.appendTo(modal);
+        }
 
         $('body').append(modal);
 
@@ -30,6 +37,8 @@ var bw = {
                     if (response.success == undefined) {
                         modal.find('.modal-dialog').html(response);
                         modal.removeClass('loading');
+
+                        loader.remove();
                     }
                 }
             });

@@ -1,29 +1,29 @@
 {
-  "name": "Boot-Wrap",
-  "version": "1.0.1",
-  "dependencies": {
-    "jquery": ">= 1.9.1",
-    "bootstrap": "~3.3.2",
-    "bootbox": "~4.3.0",
-    "html5shiv": "~3.7.2",
-    "respond": "~1.4.2"
-  },
-  "homepage": "https://github.com/astroanu/boot-wrap",
-  "authors": [
-    "Anuradha Jayathilaka <astroanu2004@gmail.com>"
-  ],
-  "description": "A js class wrapping bootstrap.js for easy ui operation",
-  "main": "src/bootwrap.js",
-  "keywords": [
-    "bootstrap"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor",
-    "test",
-    "tests"
-  ]
+    "name": "Boot-Wrap",
+    "version": "2.0.1",
+    "dependencies": {
+        "jquery": ">= 1.9.1",
+        "bootstrap": "~3.3.2",
+        "bootbox": "~4.3.0",
+        "html5shiv": "~3.7.2",
+        "respond": "~1.4.2"
+    },
+    "homepage": "https://github.com/astroanu/boot-wrap",
+    "authors": [
+        "Anuradha Jayathilaka <astroanu2004@gmail.com>"
+    ],
+    "description": "A js class wrapping bootstrap.js for easy ui operation",
+    "main": "src/bootwrap.js",
+    "keywords": [
+        "bootstrap"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "vendor",
+        "test",
+        "tests"
+    ]
 }
