@@ -38,7 +38,9 @@ var bw = {
                         modal.find('.modal-dialog').html(response);
                         modal.removeClass('loading');
 
-                        loader.remove();
+                        if (loader != null) {
+                            loader.remove();
+                        }
                     }
                 }
             });
