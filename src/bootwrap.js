@@ -55,9 +55,20 @@ var bw = {
         if (link.data('confirm') == null) {
             doAjax()
         } else {
-            bootbox.confirm(link.data('confirm'), function(result) {
-                if (result) {
-                    doAjax();
+            bootbox.confirm({
+                message: link.data('confirm'),
+                callback: function(result) {
+                    if (result) {
+                        doAjax();
+                    }
+                },
+                buttons: {
+                    cancel: {
+                        label: 'No'
+                    },
+                    confirm: {
+                        label: 'Yes'
+                    }
                 }
             });
         }
